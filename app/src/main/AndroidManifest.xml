@@ -10,28 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SubmissionDicoding">
         <activity
-            android:name=".DetailActivityBahasa"
-            android:exported="false" />
-        <activity
-            android:name="com.DetailActivityBahasa"
-            android:exported="false" />
-        <activity
-            android:name=".ProfilDicoding"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileDicoding"
-            android:exported="false" />
-        <activity
-            android:name="com.ProfileDicoding"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Profile_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailActivityBahasa"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".ProfilDicoding"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

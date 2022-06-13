@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginTop="4dp"
-    android:layout_gravity="center"
-    android:id="@+id/bahasacoding"
-    >
-    <RelativeLayout
+    android:layout_margin="3dp"
+    app:cardBackgroundColor="#1E88E5"
+    app:cardCornerRadius="34dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="10dp"
-        >
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        tools:ignore="MissingClass">
 
         <ImageView
             android:id="@+id/ImageBahasa"
-            android:layout_width="60dp"
-            android:layout_height="200dp"
-            android:contentDescription="@string/bp" />
+            style="@style/Image_user"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@tools:sample/avatars"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/namaBahasa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ImageBahasa"
+            style="@style/textView"
+            android:layout_margin="8dp"
+            android:text="username"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:gravity="center"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ImageBahasa"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/deskripsiBahasa"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_toEndOf="@id/ImageBahasa"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="8dp"
+            android:text="name"
+            app:layout_constraintEnd_toEndOf="@id/namaBahasa"
+            app:layout_constraintStart_toStartOf="@id/namaBahasa"
+            app:layout_constraintTop_toBottomOf="@id/namaBahasa" />
 
-            android:textStyle="normal" />
-
-
-
-
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

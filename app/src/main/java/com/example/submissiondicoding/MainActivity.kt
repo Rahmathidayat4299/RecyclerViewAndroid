@@ -3,6 +3,8 @@ package com.example.submissiondicoding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,15 +15,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private lateinit var btnProfile: ImageButton
-    companion object{
+
+    companion object {
         val INTENT_PARCELABLE = "OBJECT_INTENT"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        btnProfile = findViewById(R.id.btnProfile)
-        btnProfile.setOnClickListener(this)
+//        btnProfile = findViewById(R.id.btnProfile)
+//        btnProfile.setOnClickListener(this)
 
         val bahasaPemrograman = listOf<DataBahasa>(
             DataBahasa(
@@ -48,11 +51,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 R.drawable.objective,
                 "objective C",
                 "Objective – C merupakan bahasa pemrograman yang dikembangkan pada era 1983, oleh Brad Cox dan Tom Love"
-            ),DataBahasa(
+            ), DataBahasa(
                 R.drawable.php,
                 "PHP",
                 "PHP menjadi bahasa komputer yang populer di kalangan web developer untuk mengembangkan website"
-            ),DataBahasa(
+            ), DataBahasa(
                 R.drawable.python,
                 "Python",
                 "JPython banyak digunakan oleh perusahaan besar dalam pengembangannya seperti NASA, Instragam, Google, Yahoo, Reddit, dan juga situs streaming video populer YouTube."
@@ -71,15 +74,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
 
 
-
-
         )
         val recyclerView = findViewById<RecyclerView>(R.id.rcBahasa)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = BahasaAdapter(this, bahasaPemrograman) {
-            val intentBahasa = Intent (this,DetailActivityBahasa::class.java)
-            intentBahasa.putExtra(INTENT_PARCELABLE,it)
+            val intentBahasa = Intent(this, DetailActivityBahasa::class.java)
+            intentBahasa.putExtra(INTENT_PARCELABLE, it)
             startActivity(intentBahasa)
 
 
@@ -88,13 +89,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.btnProfile -> {
-                val intentProfile = Intent(this@MainActivity, ProfilDicoding::class.java)
-                startActivity(intentProfile)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite_menu -> {
+                Intent(this, ProfilDicoding::class.java).also {
+                    startActivity(it)
+                }
             }
         }
+        return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onClick(v: View) {
+//        when (v.id) {
+//            R.id.btnProfile -> {
+//                val intentProfile = Intent(this@MainActivity, ProfilDicoding::class.java)
+//                startActivity(intentProfile)
+//            }
+//        }
     }
 }
